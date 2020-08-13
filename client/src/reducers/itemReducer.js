@@ -6,8 +6,8 @@ const initialState = {
     { id: uuid(), name: "Eggs" },
     { id: uuid(), name: "Cheese" },
     { id: uuid(), name: "Milk" },
-    { id: uuid(), name: "Ham" },
-    { id: uuid(), name: "Beer" },
+    { id: uuid(), name: "Tomatoes" },
+    { id: uuid(), name: "Kale" },
   ],
 };
 
@@ -16,6 +16,11 @@ export default function (state = initialState, action) {
     case GET_ITEMS:
       return {
         ...state,
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload),
       };
     default:
       return state;
